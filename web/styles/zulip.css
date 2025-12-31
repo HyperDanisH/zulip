@@ -1857,12 +1857,6 @@ body:not(.spectator-view) {
     }
 }
 
-@container header-container (width <= $cq_sm_min) {
-    .narrow_description {
-        display: none;
-    }
-}
-
 /* Begin fallback media queries. */
 @media (width < $xl_min) {
     .without-container-query-support {
@@ -1956,14 +1950,6 @@ body:not(.spectator-view) {
         .app-main .column-left.expanded .left-sidebar {
             width: 100vw;
             max-width: 100%;
-        }
-    }
-}
-
-@media (width <= $sm_min) {
-    .without-container-query-support {
-        .narrow_description {
-            display: none;
         }
     }
 }
