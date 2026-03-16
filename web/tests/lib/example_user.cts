@@ -1,4 +1,4 @@
-"use strict";
+const {User} = require("../../src/state_data")
 
 let last_issued_user_id = 1000;
 
@@ -22,7 +22,7 @@ const Bot = Object.freeze({
     EMBEDDED: 4,
 });
 
-const bot_or_user_props = (opts = {}) => {
+const bot_or_user_props = (opts: typeof User = {}) => {
     // Since other fields need `user_id`, we extract it early.
     const user_id = opts.user_id ?? get_user_id();
     const role = opts.role ?? Role.MEMBER;
@@ -46,14 +46,14 @@ const bot_or_user_props = (opts = {}) => {
     return {...common_props, ...opts};
 };
 
-const make_user = (opts = {}) => ({
+const make_user = (opts: typeof User = {}) => ({
     ...bot_or_user_props(opts),
     is_bot: opts.is_bot ?? false,
     // By default an empty dictionary.
     profile_data: opts.profile_data ?? {},
 });
 
-const make_bot = (opts = {}) => ({
+const make_bot = (opts: typeof User = {}) => ({
     ...bot_or_user_props(opts),
     is_bot: true,
     // By default a generic bot.
